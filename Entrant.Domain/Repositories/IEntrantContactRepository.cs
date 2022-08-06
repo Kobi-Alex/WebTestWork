@@ -7,11 +7,11 @@ using Entrant.Domain.Entities;
 
 namespace Entrant.Domain.Repositories
 {
-    public interface IEntantContactRepository
+    public interface IEntrantContactRepository
     {
         Task<IEnumerable<EntrantContact>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<IEnumerable<EntrantContact>> GetAllEmailAccountIdAsync(string email, CancellationToken cancellationToken = default);
-        Task<EntrantAccount> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+        Task<IEnumerable<EntrantContact>> GetAllContactByEmailAsync(string email, CancellationToken cancellationToken = default);
+        Task<EntrantContact> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
 
         void Insert(EntrantContact item);
         void Remove(EntrantContact item);

@@ -17,11 +17,11 @@ namespace Entrant.Infrastructure.Persistance.EntityConfigurations
 
             builder.Property(account => account.FirstName)
                 .IsRequired(true)
-                .HasMaxLength(60);
+                .HasMaxLength(100);
 
             builder.Property(account => account.LastName)
                 .IsRequired(true)
-                .HasMaxLength(60);
+                .HasMaxLength(100);
 
             builder.Property(account => account.Email)
                .IsRequired(true)

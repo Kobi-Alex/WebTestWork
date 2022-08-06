@@ -8,9 +8,9 @@ namespace Entrant.Domain.Repositories
 {
     public interface IRepositoryManager
     {
-        IEntantAccountRepository EntrantAccountRepository { get; }
-        IEntantContactRepository EntrantContactRepository { get; }
-        IEntantIncedentRepository EntrantIncedentRepository { get; }
+        IEntrantAccountRepository EntrantAccountRepository { get; }
+        IEntrantContactRepository EntrantContactRepository { get; }
+        IEntrantIncedentRepository EntrantIncedentRepository { get; }
         IUnitOfWork UnitOfWork { get; }
     }
 }

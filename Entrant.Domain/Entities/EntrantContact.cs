@@ -16,7 +16,7 @@ namespace Entrant.Domain.Entities
         public string Email { get; set; }
 
         // Foreign Key
-        public int EntrantAccountId { get; set; }
+        public string EntrantAccountEmail { get; set; }
         // Navigation property
         public virtual EntrantAccount EntrantAccount { get; set; }
     }

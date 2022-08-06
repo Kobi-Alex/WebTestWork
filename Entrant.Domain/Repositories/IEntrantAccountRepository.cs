@@ -6,7 +6,7 @@ using Entrant.Domain.Entities;
 
 namespace Entrant.Domain.Repositories
 {
-    public interface IEntantAccountRepository
+    public interface IEntrantAccountRepository
     {
         Task<IEnumerable<EntrantAccount>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<EntrantAccount> GetByNameAsync(string name, CancellationToken cancellationToken = default);
@@ -14,5 +14,6 @@ namespace Entrant.Domain.Repositories
       
         void Insert(EntrantAccount item);
         void Remove(EntrantAccount item);
+        bool IsAccountExists(string name);
     }
 }

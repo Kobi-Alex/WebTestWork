@@ -8,12 +8,13 @@ using Entrant.Domain.Entities;
 
 namespace Entrant.Domain.Repositories
 {
-    public interface IEntantIncedentRepository
+    public interface IEntrantIncedentRepository
     {
         Task<IEnumerable<EntrantIncedent>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<EntrantIncedent> GetByNameAsync(string name, CancellationToken cancellationToken = default);
 
         void Insert(EntrantIncedent item);
         void Remove(EntrantIncedent item);
+        bool IsIncedentExists(string name);
     }
 }
