@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entrant", "Entrant", "{93B5F577-6514-414A-86CA-51A3F17DF78C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entrant.Domain", "Entrant.Domain\Entrant.Domain.csproj", "{34B7BD7E-8EE6-4E26-8422-567815848C72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entrant.Domain", "Entrant.Domain\Entrant.Domain.csproj", "{34B7BD7E-8EE6-4E26-8422-567815848C72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entrant.Infrastructure", "Entrant.Infrastructure\Entrant.Infrastructure.csproj", "{8C5EF1CB-1990-4B09-98D2-44280C82D524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{34B7BD7E-8EE6-4E26-8422-567815848C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B7BD7E-8EE6-4E26-8422-567815848C72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B7BD7E-8EE6-4E26-8422-567815848C72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5EF1CB-1990-4B09-98D2-44280C82D524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5EF1CB-1990-4B09-98D2-44280C82D524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5EF1CB-1990-4B09-98D2-44280C82D524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5EF1CB-1990-4B09-98D2-44280C82D524}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +32,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{93B5F577-6514-414A-86CA-51A3F17DF78C} = {F70B5F61-7CCD-4AF1-985B-2F39825A9C31}
 		{34B7BD7E-8EE6-4E26-8422-567815848C72} = {93B5F577-6514-414A-86CA-51A3F17DF78C}
+		{8C5EF1CB-1990-4B09-98D2-44280C82D524} = {93B5F577-6514-414A-86CA-51A3F17DF78C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16B2BD37-6324-47FA-9F46-DA8BF6F46AAF}
