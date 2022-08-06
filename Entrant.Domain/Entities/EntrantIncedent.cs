@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 
 namespace Entrant.Domain.Entities
@@ -11,7 +10,7 @@ namespace Entrant.Domain.Entities
         // Incedent description
         public string Description { get; set; }
 
-        // List of account
+        // List of accounts
         public virtual ICollection<EntrantAccount> EntrantAccounts { get; set; }
 
     }
