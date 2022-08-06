@@ -11,7 +11,7 @@ namespace Entrant.Domain.Repositories
     public interface IEntantIncedentRepository
     {
         Task<IEnumerable<EntrantIncedent>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<EntrantIncedent> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<EntrantIncedent> GetByNameAsync(string name, CancellationToken cancellationToken = default);
 
         void Insert(EntrantIncedent item);
         void Remove(EntrantIncedent item);

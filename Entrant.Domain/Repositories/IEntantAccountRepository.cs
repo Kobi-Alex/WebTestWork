@@ -9,8 +9,8 @@ namespace Entrant.Domain.Repositories
     public interface IEntantAccountRepository
     {
         Task<IEnumerable<EntrantAccount>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<EntrantAccount> GetByIdAsync(int id, CancellationToken cancellationToken = default);
-        Task<EntrantAccount> GetByIdIncludeContactAsync(int id, CancellationToken cancellationToken = default);
+        Task<EntrantAccount> GetByNameAsync(string name, CancellationToken cancellationToken = default);
+        Task<EntrantAccount> GetByNameIncludeContactAsync(string name, CancellationToken cancellationToken = default);
       
         void Insert(EntrantAccount item);
         void Remove(EntrantAccount item);
