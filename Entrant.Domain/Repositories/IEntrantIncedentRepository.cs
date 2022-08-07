@@ -15,6 +15,5 @@ namespace Entrant.Domain.Repositories
 
         void Insert(EntrantIncedent item);
         void Remove(EntrantIncedent item);
-        bool IsIncedentExists(string name);
     }
 }

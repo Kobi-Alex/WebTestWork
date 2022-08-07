@@ -35,24 +35,19 @@ namespace Entrant.Infrastructure.Persistance.Repositories
                 .FirstOrDefaultAsync(a => a.Name == name, cancellationToken);
         }
 
-        //Get account by name include contact
-        public async Task<EntrantAccount> GetByNameIncludeContactAsync(string name, CancellationToken cancellationToken = default)
+        //Get account by name include incident
+        public async Task<EntrantAccount> GetByNameIncludeIncedentAsync(string name, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Accounts
-                .Include(a => a.EntrantContacts)
+                .Include(a => a.EntrantIncedents)
                 .FirstOrDefaultAsync(a => a.Name == name, cancellationToken);
+
         }
 
         //Insert account
         public void Insert(EntrantAccount item)
         {
             _dbContext.Accounts.Add(item);
-        }
-
-        //Check if account exists
-        public bool IsAccountExists(string name)
-        {
-            return _dbContext.Accounts.Any(a => a.Name == name);
         }
 
         // Remove current account

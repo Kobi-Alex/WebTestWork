@@ -6,18 +6,16 @@ namespace Entrant.Domain.Entities
 {
     public class EntrantContact
     {
-        // Contact identity PK
+        //Contact identity PK
         public int Id { get; set; }
-        // Contact first name
+        //Contact first name
         public string FirstName { get; set; }
-        // Contact last name
+        //Contact last name
         public string LastName { get; set; }
-        // Contact email unique field
+        //Contact email 
         public string Email { get; set; }
 
-        // Foreign Key
-        public int EntrantAccountId { get; set; }
-        // Navigation property
-        public virtual EntrantAccount EntrantAccount { get; set; }
+        //List of accounts
+        public virtual ICollection<EntrantAccount> EntrantAccounts { get; set; }
     }
 }

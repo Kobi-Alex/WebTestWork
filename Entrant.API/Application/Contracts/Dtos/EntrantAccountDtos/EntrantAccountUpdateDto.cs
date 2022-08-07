@@ -7,5 +7,6 @@ namespace Entrant.API.Application.Contracts.Dtos.EntrantAccountDtos
     {
         [Required(ErrorMessage = "Account name is required")]
         public string Name { get; set; }
+        public int EntrantContactId { get; set; }
     }
 }

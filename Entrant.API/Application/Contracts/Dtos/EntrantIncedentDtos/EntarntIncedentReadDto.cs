@@ -8,6 +8,6 @@ namespace Entrant.API.Application.Contracts.Dtos.EntrantIncedentDtos
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public virtual ICollection<EntrantAccount> EntrantAccounts { get; set; }
+        public int EntrantAccountId { get; set; }
     }
 }

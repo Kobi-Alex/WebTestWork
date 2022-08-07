@@ -1,3 +1,4 @@
+using Entrant.API.Application.Services.Interfaces;
 using Entrant.API.Middleware;
 using Entrant.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,9 @@ namespace Entrant.API
             Console.WriteLine("\n---> Using SqlServer Db Development\n");
             services.AddDbContext<EntrantDbContext>(opt =>
                opt.UseSqlServer(Configuration.GetConnectionString("EntrantConnection")));
+
+            //add service ServiceManager
+            services.AddScoped<IServiceManager, ServiceManager>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

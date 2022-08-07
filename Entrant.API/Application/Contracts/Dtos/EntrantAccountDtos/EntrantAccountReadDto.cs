@@ -8,9 +8,8 @@ namespace Entrant.API.Application.Contracts.Dtos.EntrantAccountDtos
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string EntrantIncedentName { get; set; }
-        public virtual EntrantIncedent EntrantIncedent { get; set; }
-        public virtual ICollection<EntrantContact> EntrantContacts { get; set; }
+        public int EntrantContactId { get; set; }
+        public ICollection<EntrantIncedent> EntrantIncedents { get; set; }
     }
 }
 

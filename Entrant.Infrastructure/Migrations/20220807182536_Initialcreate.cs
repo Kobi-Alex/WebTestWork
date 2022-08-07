@@ -7,15 +7,18 @@ namespace Entrant.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Incedents",
+                name: "Contacts",
                 columns: table => new
                 {
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Incedents", x => x.Name);
+                    table.PrimaryKey("PK_Contacts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -25,35 +28,32 @@ namespace Entrant.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    EntrantIncedentName = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    EntrantContactId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Accounts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Accounts_Incedents_EntrantIncedentName",
-                        column: x => x.EntrantIncedentName,
-                        principalTable: "Incedents",
-                        principalColumn: "Name",
+                        name: "FK_Accounts_Contacts_EntrantContactId",
+                        column: x => x.EntrantContactId,
+                        principalTable: "Contacts",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Contacts",
+                name: "Incedents",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     EntrantAccountId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contacts", x => x.Id);
+                    table.PrimaryKey("PK_Incedents", x => x.Name);
                     table.ForeignKey(
-                        name: "FK_Contacts_Accounts_EntrantAccountId",
+                        name: "FK_Incedents_Accounts_EntrantAccountId",
                         column: x => x.EntrantAccountId,
                         principalTable: "Accounts",
                         principalColumn: "Id",
@@ -61,9 +61,9 @@ namespace Entrant.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Accounts_EntrantIncedentName",
+                name: "IX_Accounts_EntrantContactId",
                 table: "Accounts",
-                column: "EntrantIncedentName");
+                column: "EntrantContactId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accounts_Name",
@@ -78,21 +78,21 @@ namespace Entrant.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contacts_EntrantAccountId",
-                table: "Contacts",
+                name: "IX_Incedents_EntrantAccountId",
+                table: "Incedents",
                 column: "EntrantAccountId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Contacts");
+                name: "Incedents");
 
             migrationBuilder.DropTable(
                 name: "Accounts");
 
             migrationBuilder.DropTable(
-                name: "Incedents");
+                name: "Contacts");
         }
     }
 }

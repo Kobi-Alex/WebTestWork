@@ -20,9 +20,9 @@ namespace Entrant.Infrastructure.Persistance.EntityConfigurations
                 .HasMaxLength(60);
             builder.HasIndex(account => account.Name).IsUnique(true);
 
-            builder.HasMany(account => account.EntrantContacts)
-                .WithOne(contact => contact.EntrantAccount)
-                .HasForeignKey(contact => contact.EntrantAccountId)
+            builder.HasOne(a => a.EntrantContact)
+                .WithMany(c => c.EntrantAccounts)
+                .HasForeignKey(a => a.EntrantContactId)
                 .OnDelete(DeleteBehavior.Cascade);
 
         }

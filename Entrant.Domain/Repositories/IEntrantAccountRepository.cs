@@ -10,10 +10,9 @@ namespace Entrant.Domain.Repositories
     {
         Task<IEnumerable<EntrantAccount>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<EntrantAccount> GetByNameAsync(string name, CancellationToken cancellationToken = default);
-        Task<EntrantAccount> GetByNameIncludeContactAsync(string name, CancellationToken cancellationToken = default);
+        Task<EntrantAccount> GetByNameIncludeIncedentAsync(string name, CancellationToken cancellationToken = default);
       
         void Insert(EntrantAccount item);
         void Remove(EntrantAccount item);
-        bool IsAccountExists(string name);
     }
 }

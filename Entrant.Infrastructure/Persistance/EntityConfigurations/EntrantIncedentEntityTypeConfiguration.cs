@@ -19,9 +19,9 @@ namespace Entrant.Infrastructure.Persistance.EntityConfigurations
                 .IsRequired(true)
                 .HasMaxLength(500);
 
-            builder.HasMany(incedent => incedent.EntrantAccounts)
-                .WithOne(incedent => incedent.EntrantIncedent)
-                .HasForeignKey(incedent => incedent.EntrantIncedentName)
+            builder.HasOne(i => i.EntrantAccount)
+                .WithMany(a => a.EntrantIncedents)
+                .HasForeignKey(i => i.EntrantAccountId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

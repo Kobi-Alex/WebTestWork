@@ -47,11 +47,5 @@ namespace Entrant.Infrastructure.Persistance.Repositories
         {
             _dbContext.Incedents.Remove(item);
         }
-
-        //If current incedent exists in data base
-        public bool IsIncedentExists(string name)
-        {
-            return _dbContext.Incedents.Any(i => i.Name == name);
-        }
     }
 }

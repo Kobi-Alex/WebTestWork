@@ -10,8 +10,10 @@ namespace Entrant.Domain.Entities
         // Incedent description
         public string Description { get; set; }
 
-        // List of accounts
-        public virtual ICollection<EntrantAccount> EntrantAccounts { get; set; }
+        //Foreign Key
+        public int EntrantAccountId { get; set; }
+        //Navigation property
+        public virtual EntrantAccount EntrantAccount { get; set; }
 
     }
 }

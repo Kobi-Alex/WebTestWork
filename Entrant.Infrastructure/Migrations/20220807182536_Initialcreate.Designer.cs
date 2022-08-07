@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entrant.Infrastructure.Migrations
 {
     [DbContext(typeof(EntrantDbContext))]
-    [Migration("20220807104234_Initialcreate")]
+    [Migration("20220807182536_Initialcreate")]
     partial class Initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,8 +27,8 @@ namespace Entrant.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EntrantIncedentName")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("EntrantContactId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -37,7 +37,7 @@ namespace Entrant.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EntrantIncedentName");
+                    b.HasIndex("EntrantContactId");
 
                     b.HasIndex("Name")
                         .IsUnique();
@@ -57,9 +57,6 @@ namespace Entrant.Infrastructure.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int>("EntrantAccountId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -75,8 +72,6 @@ namespace Entrant.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.HasIndex("EntrantAccountId");
-
                     b.ToTable("Contacts");
                 });
 
@@ -90,25 +85,31 @@ namespace Entrant.Infrastructure.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<int>("EntrantAccountId")
+                        .HasColumnType("int");
+
                     b.HasKey("Name");
+
+                    b.HasIndex("EntrantAccountId");
 
                     b.ToTable("Incedents");
                 });
 
             modelBuilder.Entity("Entrant.Domain.Entities.EntrantAccount", b =>
                 {
-                    b.HasOne("Entrant.Domain.Entities.EntrantIncedent", "EntrantIncedent")
+                    b.HasOne("Entrant.Domain.Entities.EntrantContact", "EntrantContact")
                         .WithMany("EntrantAccounts")
-                        .HasForeignKey("EntrantIncedentName")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("EntrantContactId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("EntrantIncedent");
+                    b.Navigation("EntrantContact");
                 });
 
-            modelBuilder.Entity("Entrant.Domain.Entities.EntrantContact", b =>
+            modelBuilder.Entity("Entrant.Domain.Entities.EntrantIncedent", b =>
                 {
                     b.HasOne("Entrant.Domain.Entities.EntrantAccount", "EntrantAccount")
-                        .WithMany("EntrantContacts")
+                        .WithMany("EntrantIncedents")
                         .HasForeignKey("EntrantAccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -118,10 +119,10 @@ namespace Entrant.Infrastructure.Migrations
 
             modelBuilder.Entity("Entrant.Domain.Entities.EntrantAccount", b =>
                 {
-                    b.Navigation("EntrantContacts");
+                    b.Navigation("EntrantIncedents");
                 });
 
-            modelBuilder.Entity("Entrant.Domain.Entities.EntrantIncedent", b =>
+            modelBuilder.Entity("Entrant.Domain.Entities.EntrantContact", b =>
                 {
                     b.Navigation("EntrantAccounts");
                 });

@@ -10,7 +10,6 @@ namespace Entrant.Domain.Repositories
     public interface IEntrantContactRepository
     {
         Task<IEnumerable<EntrantContact>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<IEnumerable<EntrantContact>> GetAllContactByIdAsync(int id, CancellationToken cancellationToken = default);
         Task<EntrantContact> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
 
         void Insert(EntrantContact item);

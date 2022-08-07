@@ -7,18 +7,17 @@ namespace Entrant.Domain.Entities
 {
     public class EntrantAccount
     {
-        // Account identity PK
+        //Account identity PK
         public int Id { get; set; }
-        // Account name (unique)
+        //Account name (unique)
         public string Name { get; set; }
 
-
-        // Foreign Key
-        public string EntrantIncedentName { get; set; }
-        // Navigation property
-        public virtual EntrantIncedent EntrantIncedent { get; set; } 
-        //List of contacts
-        public virtual ICollection<EntrantContact> EntrantContacts { get; set; }
+        //Foreign Key
+        public int EntrantContactId { get; set; }
+        //Navigation property
+        public virtual EntrantContact EntrantContact { get; set; } 
+        //List of incidents
+        public virtual ICollection<EntrantIncedent> EntrantIncedents { get; set; }
 
     }
 }

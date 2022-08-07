@@ -16,11 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Contracts\Dtos\EntrantContactDtos\" />
-    <Folder Include="Application\Contracts\Profiles\EntrantContactProfiles\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Entrant.Infrastructure\Entrant.Infrastructure.csproj" />
   </ItemGroup>
 
