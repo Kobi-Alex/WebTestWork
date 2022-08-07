@@ -16,7 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Contracts\" />
+    <Folder Include="Application\Contracts\Dtos\EntrantContactDtos\" />
+    <Folder Include="Application\Contracts\Profiles\EntrantContactProfiles\" />
   </ItemGroup>
 
   <ItemGroup>
