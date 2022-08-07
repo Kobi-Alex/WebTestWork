@@ -22,7 +22,7 @@ namespace Entrant.Infrastructure.Persistance.EntityConfigurations
 
             builder.HasMany(account => account.EntrantContacts)
                 .WithOne(contact => contact.EntrantAccount)
-                .HasForeignKey(contact => contact.EntrantAccountEmail)
+                .HasForeignKey(contact => contact.EntrantAccountId)
                 .OnDelete(DeleteBehavior.Cascade);
 
         }

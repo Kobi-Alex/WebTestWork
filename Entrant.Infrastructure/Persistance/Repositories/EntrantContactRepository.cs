@@ -28,10 +28,10 @@ namespace Entrant.Infrastructure.Persistance.Repositories
         }
 
         //Get all contacts by email
-        public async Task<IEnumerable<EntrantContact>> GetAllContactByEmailAsync(string email, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<EntrantContact>> GetAllContactByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Contacts
-                .Where(c => c.EntrantAccountEmail == email)
+                .Where(c => c.EntrantAccountId == id)
                 .ToListAsync(cancellationToken);
         }
 

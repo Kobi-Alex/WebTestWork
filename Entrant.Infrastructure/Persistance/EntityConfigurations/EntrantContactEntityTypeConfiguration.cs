@@ -23,11 +23,11 @@ namespace Entrant.Infrastructure.Persistance.EntityConfigurations
                 .IsRequired(true)
                 .HasMaxLength(100);
 
+            builder.HasIndex(account => account.Email)
+                .IsUnique(true);
             builder.Property(account => account.Email)
                .IsRequired(true)
                .HasMaxLength(60);
-            builder.HasIndex(account => account.Email)
-                .IsUnique(true);
         }
     }
 }
