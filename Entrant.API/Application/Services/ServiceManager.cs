@@ -14,10 +14,11 @@ namespace Entrant.API.Application.Services
         public ServiceManager(IRepositoryManager repositoryManager, IMapper mapper )
         {
             _lazyEntrantContactService = new Lazy<IEntrantContactService>(() => new EntrantContactService(repositoryManager, mapper));
+            _lazyEntrantAccountService = new Lazy<IEntrantAccountService>(() => new EntrantAccountService(repositoryManager, mapper));
         }
 
-        public IEntrantIncedentService EntrantIncedentService => throw new NotImplementedException();
-        public IEntrantAccountService EntrantAccountService => throw new NotImplementedException();
-        public IEntrantContactService EntrantContactService => throw new NotImplementedException();
+        public IEntrantIncedentService EntrantIncedentService => _lazyEntrantIncedentService.Value;
+        public IEntrantAccountService EntrantAccountService => _lazyEntrantAccountService.Value;
+        public IEntrantContactService EntrantContactService => _lazyEntrantContactService.Value;
     }
 }

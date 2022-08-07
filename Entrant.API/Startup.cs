@@ -1,3 +1,4 @@
+using Entrant.API.Application.Services;
 using Entrant.API.Application.Services.Interfaces;
 using Entrant.API.Middleware;
 using Entrant.Infrastructure;
@@ -26,15 +27,19 @@ namespace Entrant.API
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             Console.WriteLine("\n---> Using SqlServer Db Development\n");
             services.AddDbContext<EntrantDbContext>(opt =>
                opt.UseSqlServer(Configuration.GetConnectionString("EntrantConnection")));
 
+
             //add service ServiceManager
             services.AddScoped<IServiceManager, ServiceManager>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -44,6 +49,7 @@ namespace Entrant.API
 
             services.AddTransient<ExceptionHandlingMiddleware>();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
