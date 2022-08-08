@@ -11,6 +11,7 @@ namespace Entrant.Domain.Repositories
     {
         Task<IEnumerable<EntrantContact>> GetAllAsync(CancellationToken cancellationToken = default);
         Task<EntrantContact> GetByEmailAsync(string email, CancellationToken cancellationToken = default);
+        Task<EntrantContact> GetByIdAsync(int Id, CancellationToken cancellationToken = default);
 
         void Insert(EntrantContact item);
         void Remove(EntrantContact item);

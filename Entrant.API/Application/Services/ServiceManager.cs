@@ -15,6 +15,7 @@ namespace Entrant.API.Application.Services
         {
             _lazyEntrantContactService = new Lazy<IEntrantContactService>(() => new EntrantContactService(repositoryManager, mapper));
             _lazyEntrantAccountService = new Lazy<IEntrantAccountService>(() => new EntrantAccountService(repositoryManager, mapper));
+            _lazyEntrantIncedentService = new Lazy<IEntrantIncedentService>(() => new EntrantIncedentService(repositoryManager, mapper));
         }
 
         public IEntrantIncedentService EntrantIncedentService => _lazyEntrantIncedentService.Value;

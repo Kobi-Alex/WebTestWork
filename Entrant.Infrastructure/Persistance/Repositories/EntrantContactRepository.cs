@@ -34,6 +34,12 @@ namespace Entrant.Infrastructure.Persistance.Repositories
                 .FirstOrDefaultAsync(c => c.Email == email, cancellationToken);
         }
 
+        public async Task<EntrantContact> GetByIdAsync(int Id, CancellationToken cancellationToken = default)
+        {
+            return await _dbContext.Contacts
+                .FirstOrDefaultAsync(c => c.Id == Id, cancellationToken);
+        }
+
         //Insert contact
         public void Insert(EntrantContact item)
         {

@@ -12,6 +12,9 @@ namespace Entrant.API.Application.Contracts.Profiles.EntrantContactProfiles
             CreateMap<EntrantContact, EntrantContactReadDto>();
             CreateMap<EntrantContactReadDto, EntrantContact>();
             CreateMap<EntrantContactUpdateDto, EntrantContact>();
+            CreateMap<EntrantContact, EntrantContactUpdateDto>();
+            CreateMap<EntrantContact, EntrantContactCreateDto>();
+            CreateMap<EntrantContactCreateDto, EntrantContact>();
         }
     }
 }

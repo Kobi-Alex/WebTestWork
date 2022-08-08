@@ -1,7 +1,9 @@
 using Entrant.API.Application.Services;
 using Entrant.API.Application.Services.Interfaces;
 using Entrant.API.Middleware;
+using Entrant.Domain.Repositories;
 using Entrant.Infrastructure;
+using Entrant.Infrastructure.Persistance.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -40,8 +42,13 @@ namespace Entrant.API
             //add service ServiceManager
             services.AddScoped<IServiceManager, ServiceManager>();
 
+            // RepositoryManager configuration
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+
 
             services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Entrant.API", Version = "v1" });
@@ -74,7 +81,7 @@ namespace Entrant.API
             });
 
             //add Seeding data
-            EntrantDbContextSeed.PrepPopulation(app);
+            //EntrantDbContextSeed.PrepPopulation(app);
         }
     }
 }
